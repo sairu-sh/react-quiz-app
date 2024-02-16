@@ -1,23 +1,26 @@
 import { useReducer, useState } from "react";
 
 function reducer(state, action) {
+  console.log(state, action);
+
   switch (action.type) {
     case "dec":
-      return state--;
-      break;
+      return { ...state, count: state.count - 1 };
     case "inc":
-      return state++;
+      return { ...state, count: state.count + 1 };
     case "setCount":
-      return action.payload;
+      return { ...state, count: action.payload };
     default:
-      break;
+      throw new Error("unknown action");
   }
 }
 function DateCounter() {
   // const [count, setCount] = useState(0);
-  const [count, dispatchh] = useReducer(reducer, 0);
-  const [step, setStep] = useState(1);
+  // const [step, setStep] = useState(1);
 
+  const initialState = { count: 0, step: 1 };
+  const [state, dispatchh] = useReducer(reducer, initialState);
+  const { count, step } = state;
   // This mutates the date object.
   const date = new Date("june 21 2027");
   date.setDate(date.getDate() + count);
@@ -45,7 +48,7 @@ function DateCounter() {
 
   const reset = function () {
     // setCount(0);
-    setStep(1);
+    // setStep(1);
   };
 
   return (
