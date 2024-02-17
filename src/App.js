@@ -31,7 +31,7 @@ export default function App() {
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) => {
         console.log(err);
-        return questions;
+        dispatch({ type: "dataReceived", payload: questions });
       });
   }, []);
   return (
