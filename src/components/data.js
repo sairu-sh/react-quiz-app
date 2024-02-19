@@ -1,4 +1,4 @@
-export const questions = [
+export const questionsArray = [
   {
     question: "Which is the most popular JavaScript framework?",
     options: ["Angular", "React", "Svelte", "Vue"],
