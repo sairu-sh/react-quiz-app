@@ -10,7 +10,7 @@ import Progress from "./Progress";
 import FinishScreen from "./FinishScreen";
 import Footer from "./Footer";
 import TImer from "./TImer";
-// import { questions } from "./data";
+// import { questionsArray } from "./data";
 
 const SECS_PER_QUESTION = 30;
 
@@ -98,7 +98,7 @@ export default function App() {
         console.log(err);
         dispatch({ type: "dataFailure" });
         //for github pages
-        // dispatch({ type: "dataReceived", payload: questions });
+        // dispatch({ type: "dataReceived", payload: questionsArray });
       });
   }, []);
   return (
